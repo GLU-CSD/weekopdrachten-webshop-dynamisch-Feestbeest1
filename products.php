@@ -56,6 +56,4 @@ $products = [
     ["name" => "Big Multifunction Station", "price" => 1999.99, "category" => "Gym Machines", "image" => "assets/img/bigmulitfunctionstation.jpg"]
 ];
 
-// Optioneel: JSON export
-
 ?>

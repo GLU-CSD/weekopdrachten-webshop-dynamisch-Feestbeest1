@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beginner Webshop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"> <!-- Luxe lettertype -->
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
+<header class="navbar">
+    <div class="container">
+        <a href="index.php" class="logo">Mijn Webshop</a>
+        <ul class="nav-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="shop.php?category=Freeweight">Freeweight</a></li>
+            <li><a href="shop.php?category=Machines">Gym Machines</a></li>
+        </ul>
+    </div>
+</header>
