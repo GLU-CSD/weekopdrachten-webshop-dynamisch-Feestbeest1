@@ -47,37 +47,58 @@ include 'products.php';
         </ul>
     </section>
 
-    <section id="freeweight" class="freeweight">
-        <h3>Freeweight</h3>
-        <div class="products">
-            <?php foreach ($products as $product) : ?>
-                <?php if ($product['category'] === 'Freeweight') : ?>
-                    <div class="product">
-                        <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
-                        <h3><?php echo $product['name']; ?></h3>
-                        <p>&euro;<?php echo number_format($product['price'], 2, ',', '.'); ?></p>
-                        <button>Order</button>
-                    </div>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </div>
-    </section>
+    <form id="filterForm">
+    <label for="category">Categorie:</label>
+    <select id="category">
+        <option value="all">Alle producten</option>
+        <option value="Freeweight">Freeweight</option>
+        <option value="Machines">Gym Machines</option>
+    </select>
 
-    <section id="gymmachines" class="freeweight">
-        <h3>Gym Machines</h3>
-        <div class="products">
-            <?php foreach ($products as $product) : ?>
-                <?php if ($product['category'] === 'Machines') : ?>
-                    <div class="product">
-                        <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
-                        <h3><?php echo $product['name']; ?></h3>
-                        <p>&euro;<?php echo number_format($product['price'], 2, ',', '.'); ?></p>
-                        <button>Order</button>
-                    </div>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </div>
-    </section>
+    <label for="min_price">Min. Prijs:</label>
+    <input type="number" id="min_price" placeholder="€0">
+
+    <label for="max_price">Max. Prijs:</label>
+    <input type="number" id="max_price" placeholder="€1000">
+</form>
+
+
+<section id="freeweight" class="freeweight">
+    <h3>Freeweight</h3>
+    <div class="products">
+        <?php foreach ($products as $product) : ?>
+            <?php if ($product['category'] === 'Freeweight') : ?>
+                <div class="product" 
+                     data-category="<?php echo $product['category']; ?>" 
+                     data-price="<?php echo $product['price']; ?>">
+                    <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+                    <h3><?php echo $product['name']; ?></h3>
+                    <p>&euro;<?php echo number_format($product['price'], 2, ',', '.'); ?></p>
+                    <button>Order</button>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<section id="gymmachines" class="freeweight">
+    <h3>Gym Machines</h3>
+    <div class="products">
+        <?php foreach ($products as $product) : ?>
+            <?php if ($product['category'] === 'Machines') : ?>
+                <div class="product" 
+                     data-category="<?php echo $product['category']; ?>" 
+                     data-price="<?php echo $product['price']; ?>">
+                    <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+                    <h3><?php echo $product['name']; ?></h3>
+                    <p>&euro;<?php echo number_format($product['price'], 2, ',', '.'); ?></p>
+                    <button>Order</button>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+</section>
+
 
     <section id="about" class="about">
         <h2>About Us</h2>
