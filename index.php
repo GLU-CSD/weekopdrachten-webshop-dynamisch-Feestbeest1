@@ -1,5 +1,11 @@
 <?php
 include 'products.php';
+
+$categoriesWithProducts = [];
+foreach ($products as $product) {
+    $categoriesWithProducts[$product['category']][] = $product;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +16,6 @@ include 'products.php';
     <title>Beginner Webshop</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -48,56 +53,51 @@ include 'products.php';
     </section>
 
     <form id="filterForm">
-    <label for="category">Categorie:</label>
-    <select id="category">
-        <option value="all">Alle producten</option>
-        <option value="Freeweight">Freeweight</option>
-        <option value="Machines">Gym Machines</option>
-    </select>
+    <div class="filter-group">
+        <label for="category">Categorie:</label>
+        <select id="category">
+            <option value="all">Alle producten</option>
+            <option value="Freeweight">Freeweight</option>
+            <option value="gymmachines">Gym Machines</option>
+        </select>
+    </div>
 
-    <label for="min_price">Min. Prijs:</label>
-    <input type="number" id="min_price" placeholder="€0">
+    <div class="filter-group">
+        <label for="min_price">Min. Prijs:</label>
+        <input type="number" id="min_price" placeholder="€0">
+    </div>
 
-    <label for="max_price">Max. Prijs:</label>
-    <input type="number" id="max_price" placeholder="€1000">
+    <div class="filter-group">
+        <label for="max_price">Max. Prijs:</label>
+        <input type="number" id="max_price" placeholder="€1000">
+    </div>
+
+    <button type="button" id="resetFilters">Reset</button>
 </form>
 
 
-<section id="freeweight" class="freeweight">
-    <h3>Freeweight</h3>
-    <div class="products">
-        <?php foreach ($products as $product) : ?>
-            <?php if ($product['category'] === 'Freeweight') : ?>
-                <div class="product" 
-                     data-category="<?php echo $product['category']; ?>" 
-                     data-price="<?php echo $product['price']; ?>">
-                    <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
-                    <h3><?php echo $product['name']; ?></h3>
-                    <p>&euro;<?php echo number_format($product['price'], 2, ',', '.'); ?></p>
-                    <button>Order</button>
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </div>
-</section>
 
-<section id="gymmachines" class="freeweight">
-    <h3>Gym Machines</h3>
-    <div class="products">
-        <?php foreach ($products as $product) : ?>
-            <?php if ($product['category'] === 'Machines') : ?>
-                <div class="product" 
-                     data-category="<?php echo $product['category']; ?>" 
-                     data-price="<?php echo $product['price']; ?>">
-                    <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
-                    <h3><?php echo $product['name']; ?></h3>
+    <?php
+    foreach($categoriesWithProducts as $category => $products) {
+        ?>
+        <section id="<?php echo $category ?>" class="productSection">
+            <h3><?php echo $category ?></h3>
+            <div class="products">
+            <?php foreach ($products as $product){ ?>
+                <div class="product" data-category="<?php echo $category; ?>" data-price="<?php echo $product['price']; ?>">
+                    <a href="product.php?id=<?php echo $product['id']; ?>">
+                        <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+                        <h3><?php echo $product['name']; ?></h3>
+                    </a>
                     <p>&euro;<?php echo number_format($product['price'], 2, ',', '.'); ?></p>
                     <button>Order</button>
                 </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </div>
-</section>
+            <?php } ?>
+            </div>
+        </section>
+        <?php
+    }
+    ?>
 
 
     <section id="about" class="about">
@@ -131,6 +131,7 @@ include 'products.php';
         <p>&copy; 2025 Webshop. All rights reserved.</p>
         <p><a href="#privacy">Privacybeleid</a></p>
     </footer>
+    <script src="script.js" defer></script>
 
     <script>
         function scrollToHome() {
@@ -145,5 +146,6 @@ include 'products.php';
             document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
         }
     </script>
+
 </body>
 </html>

@@ -1,30 +1,43 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const categorySelect = document.getElementById("category");
-    const minPriceInput = document.getElementById("min_price");
-    const maxPriceInput = document.getElementById("max_price");
+document.addEventListener("DOMContentLoaded", function() {
+    const categoryFilter = document.getElementById("category");
+    const minPriceFilter = document.getElementById("min_price");
+    const maxPriceFilter = document.getElementById("max_price");
     const products = document.querySelectorAll(".product");
-
+    
     function filterProducts() {
-        const selectedCategory = categorySelect ? categorySelect.value : "all";
-        const minPrice = minPriceInput ? parseFloat(minPriceInput.value) || 0 : 0;
-        const maxPrice = maxPriceInput ? parseFloat(maxPriceInput.value) || Infinity : Infinity;
+        let selectedCategory = categoryFilter.value;
+        let minPrice = parseFloat(minPriceFilter.value) || 0;
+        let maxPrice = parseFloat(maxPriceFilter.value) || Infinity;
 
         products.forEach(product => {
-            const productCategory = product.getAttribute("data-category");
-            const productPrice = parseFloat(product.getAttribute("data-price")) || 0;
-            
-            const categoryMatch = (selectedCategory === "all" || productCategory === selectedCategory);
-            const priceMatch = (productPrice >= minPrice && productPrice <= maxPrice);
-            
+            let productCategory = product.getAttribute("data-category");
+            let productPrice = parseFloat(product.getAttribute("data-price"));
+
+            let categoryMatch = (selectedCategory === "all" || productCategory === selectedCategory);
+            let priceMatch = (productPrice >= minPrice && productPrice <= maxPrice);
+
             if (categoryMatch && priceMatch) {
                 product.style.display = "block";
             } else {
                 product.style.display = "none";
             }
         });
+
+        console.log(selectedCategory);
+
+        const categorySections = document.querySelectorAll(".productSection");
+        categorySections.forEach(section => {
+            let category = section.id;
+            if (category === selectedCategory || selectedCategory === "all") {
+                section.style.display = "block";
+            } else {
+                section.style.display = "none";
+            }
+        });
     }
 
-    if (categorySelect) categorySelect.addEventListener("change", filterProducts);
-    if (minPriceInput) minPriceInput.addEventListener("input", filterProducts);
-    if (maxPriceInput) maxPriceInput.addEventListener("input", filterProducts);
+    // Event Listeners voor filteren
+    categoryFilter.addEventListener("change", filterProducts);
+    minPriceFilter.addEventListener("input", filterProducts);
+    maxPriceFilter.addEventListener("input", filterProducts);
 });

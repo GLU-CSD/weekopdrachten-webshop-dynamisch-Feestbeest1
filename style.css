@@ -103,8 +103,7 @@ h2 {
     border-radius: 7px;
 }
 
-.freeweight { 
-    padding-top: 100px; 
+.productSection { 
     text-align: center; 
     font-size: 2em; 
     color: #1A1F36;  
@@ -139,10 +138,15 @@ h2 {
     transition: transform 0.2s ease-in-out;
 }
 
+.product a {
+    text-decoration: none;
+    color: #1A1F36;
+}
+
 .product img {
     width: 100%;
     max-width: 300px;
-    max-height: 170px;
+    height: 170px;
     object-fit: contain;
     border-radius: 10px;
 }
@@ -306,11 +310,91 @@ header nav.active {
     gap: 20px; 
 }
 
+#filterForm {
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    gap: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px auto;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+#filterForm label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#filterForm select,
+#filterForm input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    min-width: 120px;
+}
+
+#resetFilters {
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #1A1F36;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resetFilters:hover {
+    background-color: #2C3E50;
+}
+
+.products-small-img img {
+    height: 92px;
+    margin: 10px 0;
+    cursor: pointer;
+    display: block;
+    opacity: .6;
+    margin-top: 10px;
+    background-color: lightgray;
+}
+
+.products-small-img img:hover{
+    opacity: 1;
+}
+
+.gallery {
+    margin-top: 100px;
+    display: flex;
+    margin: 0 auto;
+    width: 650px;
+}
+
+.img-container img {
+    height: 500px;
+}
+
+.img-container{
+    padding: 10px;
+    background-color: lightgray;
+}
 
 
+@media (max-width: 600px) {
+    #filterForm {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 @media (max-width: 768px) {
     #sidebar {
         width: 200px;  
     }
 }
+
