@@ -30,8 +30,12 @@ foreach ($products as $product) {
             </nav>
             <form action="Formulier/coolblue.html">
                 <button type="submit" class="afrekenen">🛒</button>
-            </form>            
-            <button id="sidebar-toggle">☰</button>
+            </form>          
+            <div class="ham-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
     
@@ -42,17 +46,17 @@ foreach ($products as $product) {
         </section>
     </section>
 
-    <section id="sidebar" class="hidden">
-        <ul>
+    <section id="" class="off-screen-menu">
+        <ul>    
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#freeweight">Freeweight</a></li>
             <li><a href="#gymmachines">Gym Machines</a></li>
         </ul>
-    </section>
+</section>
 
-    <form id="filterForm">
+    <form id="filterForm">  
     <div class="filter-group">
         <label for="category">Categorie:</label>
         <select id="category">
