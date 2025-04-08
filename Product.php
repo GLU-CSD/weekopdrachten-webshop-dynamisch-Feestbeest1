@@ -1,5 +1,7 @@
 <?php
-include 'products.php'; 
+session_start();
+include 'includes/productsArray.php'; 
+
 
 $product_id = $_GET['id'] ?? null;
 
@@ -11,7 +13,21 @@ foreach ($products as $p) {
     }
 }
 
-if (!$product) {
+
+if (isset($_POST["product_id"])) {
+    $productId = $_POST["product_id"];
+
+    if (!isset($_SESSION["Cart"])) {
+        $_SESSION["Cart"] = [];
+    }
+
+    if (isset($_SESSION["Cart"][$productId])) {
+        $_SESSION["Cart"][$productId]++;
+    } else {
+        $_SESSION["Cart"][$productId] = 1;
+    }
+
+    // Redirect naar index of productpagina (voorkomt form opnieuw posten bij refresh)
     header("Location: index.php");
     exit;
 }
@@ -28,7 +44,19 @@ if (!$product) {
 <body>
 
 <header>
-    <a href="index.php"><h1>FitGym</h1></a>
+        <div class="logohoek">
+            <a href="index.php#home"><h1>FitGym</h1></a>
+        </div>
+        <div class="menu-container">
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <form action="Product.php?id=<?php echo $product_id; ?>" method="POST">
+                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                <button type="submit" class="afrekenen">🛒</button>
+            </form>  
 </header>
 
 <section class="product-details">

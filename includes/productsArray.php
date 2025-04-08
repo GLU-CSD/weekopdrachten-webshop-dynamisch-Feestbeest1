@@ -200,4 +200,14 @@ $products = [
         "description" => "Multifunctioneel trainingsstation voor volledige lichaamstraining."
     ]
 ];
+$categoriesWithProducts = [];
+
+foreach ($products as $product) {
+    $category = $product['category'];
+    if (!isset($categoriesWithProducts[$category])) {
+        $categoriesWithProducts[$category] = [];
+    }
+    $categoriesWithProducts[$category][] = $product;
+}
+
 ?>

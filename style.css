@@ -1,5 +1,6 @@
 html{
     scroll-behavior: smooth; 
+    font-family: 'Playfair Display', serif;
 }
 
 ul{
@@ -26,6 +27,35 @@ header {
     left: 0;
 }
 
+header .icon-cart{
+    position: relative;
+    right: 0;
+}
+
+header .icon-cart span{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: #ff0000;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right:-28px;
+
+}
+
+.cartTab .btn{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+svg{
+    width: 30px;
+}
+
 .logo {
     width: 160px; 
     height: 160px; 
@@ -48,6 +78,15 @@ header nav a:hover {
 
 header nav {
     align-items: center;
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+    color: #FFF;
+    font-size: 2rem;
 }
 
 h1 {
@@ -190,6 +229,10 @@ h2 {
     padding: 40px 50px;
     margin-top: 50px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 50px auto;
+    font-size: 1.2em;   
 }
 
 .about h2, .contact h2 {
@@ -207,10 +250,12 @@ form {
     margin: 20px auto;
     display: flex;
     text-align: center; 
+    flex-direction: column;
 }
 
 form button {
     display: block;
+    color: #fff;
 }
 
 input, textarea {
@@ -234,18 +279,25 @@ button:hover {
 }
 
 footer {
-    background: #2C3E50;
+    background:  #1A1F36; 
     color: #fff;
     text-align: center;
-    padding: 20px;
-    margin-top: 50px;
+    padding: 20px 0;
+    margin-top: 50px; 
 }
 
-.offscreen-menu    {
+footer a {
+    color: #00ccff;
+    text-decoration: none;
+    text-decoration: underline; 
+    
+}
+
+.offscreen-menu {
     background-color: #1A1F36;
     height: 100vh;
     width: 100%;
-    max-width: 450px;
+    max-width: 250px;
     position: fixed;
     top: 0;
     right: -450px;
@@ -257,7 +309,20 @@ footer {
     font-size: 3rem;
     transition: .3s ease;
     text-decoration: none;
-    color: white;   
+    color: white;  
+    z-index: 100; 
+}
+
+.offscreen-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+.offscreen-menu a:hover {
+    color: #f4a261;
+    text-decoration: underline; 
 }
 
 .offscreen-menu.active {
@@ -320,8 +385,8 @@ nav {
 .ham-menu.active {
     position: fixed;
     top: 20px;
-    right: 20px;
-    z-index: 100;
+    right: 0px;
+    z-index: 999;
 }
 
 .off-screen-menu {
@@ -361,7 +426,9 @@ header nav.active {
     display: flex;
     gap: 20px; 
     align-items: center;
-    justify-content: space-between;
+    font-family: 'Playfair Display', serif;
+    margin-left: auto;
+    padding-right: 20px;
 }
 
 .menu-container nav {
@@ -373,34 +440,37 @@ header nav.active {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    font-weight: bold;  
+    font-weight: bold;
 }
 
 .menu-container nav a:hover {
     color: #f4a261; 
 }
 
-
 #filterForm {
     display: flex;
-    flex-direction: row;
-    
-    align-items: center;
-    gap: 25px;
+    align-items: center; 
+    justify-content: center;
+    gap: 40px;
     padding: 15px;
     border-radius: 8px;
-    margin: 20px auto;
 }
 
 .filter-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    
+    align-items: center;
 }
 
 #filterForm label {
     font-size: 14px;
     font-weight: bold;
+
     margin-bottom: 5px;
+    margin-right: 5px;
+
+    white-space: nowrap;
 }
 
 #filterForm select,
@@ -462,6 +532,12 @@ header nav.active {
     align-items: center;
     font-size: 40px;
     color: #2C3E50;
+}
+
+.balk{
+    height: 2px;
+    background-color: #1A1F36;
+    margin: 30px 0;
 }
 
 @media (max-width: 600px) {
