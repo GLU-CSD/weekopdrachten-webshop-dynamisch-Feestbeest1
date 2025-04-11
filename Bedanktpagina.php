@@ -10,7 +10,7 @@
         <div class="popup" id="popup">
             <img src="assets/img/vinkje.png">
             <h2>Thank you!</h2>
-            <p>Your details has been succesfully sbmutted. Thanks!</p>
+            <p>Your details has been succesfully submitted. Thanks!</p>
             <button type="button" onclick="closePopup()">OK</button>
         </div>
     </div>

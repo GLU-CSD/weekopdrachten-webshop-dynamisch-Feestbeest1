@@ -634,6 +634,17 @@ header nav.active {
     font-family: Arial, sans-serif;
 }
 
+.cart-container a{
+    background-color: #0B132B; 
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .cart-container h3 {
     text-align: center;
     margin-bottom: 15px;

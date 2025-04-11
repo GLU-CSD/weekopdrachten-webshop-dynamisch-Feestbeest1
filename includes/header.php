@@ -15,7 +15,7 @@
             <a href="index.php#home"><h1>FitGym</h1></a>
         </div>
         <div class="menu-container">
-        <form action="Formulier/bestel.php" method="POST">
+        <form action="productinfo.php" method="POST">
             <button type="submit" class="cart-icon">
                 <i class='bx bx-cart'></i>
             </button>
