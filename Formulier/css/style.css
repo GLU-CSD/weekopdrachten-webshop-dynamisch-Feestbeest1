@@ -11,6 +11,8 @@ p {
     font-size: 24px;
     font-style: italic;
     margin: 5px 0 20px 0; 
+    text-align: center;
+
 }
 
 #container {
@@ -69,6 +71,7 @@ h2 {
     text-transform: uppercase; 
     letter-spacing: 2px; 
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); 
+    text-align: justify;
 }
 
 .rij {

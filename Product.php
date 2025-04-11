@@ -21,13 +21,11 @@ if (isset($_POST["product_id"])) {
         $_SESSION["Cart"] = [];
     }
 
-    if (isset($_SESSION["Cart"][$productId])) {
-        $_SESSION["Cart"][$productId]++;
-    } else {
-        $_SESSION["Cart"][$productId] = 1;
-    }
+    array_push($_SESSION["Cart"], [
+        "product_title" => $product['name'],
+        "product_price" => $product['price']
+    ]);
 
-    // Redirect naar index of productpagina (voorkomt form opnieuw posten bij refresh)
     header("Location: index.php");
     exit;
 }

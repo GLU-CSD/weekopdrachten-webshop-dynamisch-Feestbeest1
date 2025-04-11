@@ -1,10 +1,6 @@
 <?php
-session_start();
-
-if (isset($_SESSION['Cart'])) {
-    print_r($_SESSION['Cart']);
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +30,15 @@ if (isset($_SESSION['Cart'])) {
         </div>
     </header>
 
-    <div id="container">
+    <div class="main-container">
+    <!-- Formulier -->
+    <div class="form-container">
+        <form action="doelbestand.php" method="post">
+            <!-- al je formuliercode blijft hier -->
+        </form>
+    </div>
+
+
         <form action="doelbestand.php" method="post">
             <div class="coolblue_titel">
                 <h2>YOUR DETAILS</h2>
