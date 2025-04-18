@@ -78,10 +78,8 @@ if (isset($_POST["product_id"])) {
         </div>
     </div>
 </section>  
-<footer>
-        <p>&copy; 2025 Webshop. All rights reserved.</p>
-        <p><a href="#privacy">Privacybeleid</a></p>
-    </footer>
+
+<?php include 'includes/footer.php'; ?>
 
 <script src="script.js" defer></script>
 
