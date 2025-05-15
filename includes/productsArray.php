@@ -32,7 +32,7 @@ $products = [
         "description" => "Een veelzijdige kettlebell voor functionele training."
     ],
     [
-        "id" => 4,
+        "id" => 4,  
         "name" => "Platen",
         "category" => "Freeweight",
         "price" => 2.50,

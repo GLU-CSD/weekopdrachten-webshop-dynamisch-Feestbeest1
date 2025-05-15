@@ -23,13 +23,9 @@
     <p><strong>Newsletter:</strong> <?= isset($_POST['newsletter']) ? 'Yes' : 'No' ?></p>
 <?php else: ?>
     <p>No data submitted.</p>
-<?php endif; ?>
-
+<?php endif; ?> 
         </div>
-
-        <a href="../index.php" class="button">Back to Home</a>
     </div>
-
     <script src="script.js" defer></script>
     <script>
         let popup = document.getElementById("popup");
@@ -43,8 +39,6 @@
         }
     </script>
 
-<input type="hidden" name="product[]" value="Dumbbell 10kg">
-<input type="hidden" name="product[]" value="Yoga Mat">
 
 <?php if (!empty($_POST['product'])): ?>
     <p><strong>Products ordered:</strong></p>
